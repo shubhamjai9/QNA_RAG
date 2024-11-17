@@ -101,7 +101,7 @@ To Visit UI:
 First Login to the Link using user_id and Password provided in `user_password_info.csv`. After Login, you can send urls to update the vector data base. The urls Should be in list od string format as shown below:
 
 
-You can directly converse with 
+You can directly converse with the Chatbot
 
 ## Discussion
 
