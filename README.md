@@ -7,7 +7,7 @@ You can choose between mxbai, ColBERT and OpenAI Embeddings for RAG from `.env`.
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install all the dependencies.
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install all the dependencies. Tested on :`Python==3.12.6`
 
 ```bash
 pip install -r requirements.txt
@@ -99,9 +99,20 @@ To Visit UI:
 `http://127.0.0.1:8002/` 
 
 First Login to the Link using user_id and Password provided in `user_password_info.csv`. After Login, you can send urls to update the vector data base. The urls Should be in list od string format as shown below:
+<img width="626" alt="Screenshot 2024-11-17 at 6 04 56 PM" src="https://github.com/user-attachments/assets/610700cc-a944-44c3-abbf-8229015e2cb8">
 
 
-You can directly converse with the Chatbot
+
+You can directly converse with the Chatbot.
+
+## Issues
+1. There might be chances that Ratatoille won't work correctly as there is very less document and support for the library. 
+2. While using ColBERT on CPU could slow up system.
+
+## Future Work
+1. Provide support for semantic router to improve chat response on greetings and personal questions.
+2. Improve RAG structure for ColBert.
+3. 
 
 ## Discussion
 
