@@ -33,6 +33,30 @@ To Visit API:
 
 `http://0.0.0.0:8001/docs`  
 
+Dummy Request Format (Curl)
+```bash
+curl -X 'POST' \
+  'http://0.0.0.0:8001/api/v1/index' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "urls": [
+        "https://huyenchip.com/2024/07/25/genai-platform.html",
+        "https://lilianweng.github.io/posts/2024-07-07-hallucination/"
+    ],
+  "user_id": "string"
+}'
+```
+Returns a stringify json object
+```json
+{'status': 'success',
+ 'indexed_url': ['https://huyenchip.com/2024/07/25/genai-platform.html',
+  'https://lilianweng.github.io/posts/2024-07-07-hallucination/',
+  'https://jina.ai/news/what-is-colbert-and-late-interaction-and-why-they-matter-in-search/',
+  'https://quoraengineering.quora.com/Building-Embedding-Search-at-Quora'],
+ 'failed_url': []}
+```
+
 ### FOR UI (Gradio) Usage
 ```bash
 python app_ui.py
