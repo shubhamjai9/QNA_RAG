@@ -99,9 +99,7 @@ To Visit UI:
 `http://127.0.0.1:8002/` 
 
 First Login to the Link using user_id and Password provided in `user_password_info.csv`. After Login, you can send urls to update the vector data base. The urls Should be in list of string format as shown below:
-
-![Uploading Screenshot 2024-11-17 at 6.32.05 PM.png…](RAG Based Chat)
-
+<img width="1298" alt="Screenshot 2024-11-17 at 6 32 05 PM" src="https://github.com/user-attachments/assets/a8163d08-9eab-49b5-91c4-3e6278c99dda">
 
 
 
