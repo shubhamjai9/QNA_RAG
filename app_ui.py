@@ -17,7 +17,6 @@ print(os.getenv("OPENAI_API_KEY"))
 
 def authenticate(username, password):
     user_info = pd.read_csv(f"{curr_path}/user_password_info.csv", index_col=0)
-    print(user_info)
     if username in user_info.index:
         if user_info.loc[username, "password"] == password:
             return True
@@ -58,12 +57,16 @@ def grad_url_update(request: gr.Request, urls: str):
 
 def responder(request: gr.Request, message: str, chatbox: list):
     history.append({"role": "user", "content": message})
-    print(message, chatbox, request.username)
+
     output = chat(history, request.username, vector_store)
+    print(message, chatbox, output)
+    reference = (
+        f"\n reference: {output['reference']}" if len(output["reference"]) > 0 else ""
+    )
     chatbox.append(
         (
             history[-1]["content"],
-            f"{output['response']} \n reference: {output['reference']}",
+            f"{output['response']} {reference} ",
         )
     )
     return "", chatbox
@@ -93,7 +96,10 @@ with gr.Blocks() as demo:
             )
 
         with gr.Column(scale=2, min_width=300):
-            chatbot = gr.Chatbot(label="Ask Query regarding DB")
+            chatbot = gr.Chatbot(
+                label="Ask Query regarding DB",
+                value=[[None, "Hi I am ZOLO. How can I help you?"]],
+            )
             message = gr.Textbox(label="Message", placeholder="Write your message here")
             send = gr.Button("Send")
 

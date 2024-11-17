@@ -52,7 +52,17 @@ async def websocket_endpoint(data: BaseChatRequestType, request: Request):
         )
     try:
         response = chat(data.messages, data.user_id, vector_store)
-        return json.dumps(response)
+        return json.dumps(
+            {
+                "response": [
+                    {
+                        "content": response["response"],
+                        "role": "assistant",
+                        "citation": response["reference"],
+                    }
+                ]
+            }
+        )
     except Exception as e:
         return json.dumps(
             {"error": "Error while sending request", "Error_type": str(e)}

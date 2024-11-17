@@ -58,7 +58,7 @@ def load_store(embed: str = os.getenv("MODEL")):
                 document_ids=["temp_link_id"],
                 document_metadatas=[{"user_id": "temp", "link_id": "link_id"}],
                 index_name="RAG_Assignment",
-                max_document_length=180,
+                max_document_length=512,
                 split_documents=True,
             )
 
