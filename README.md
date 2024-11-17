@@ -1,4 +1,4 @@
-<img width="1298" alt="Screenshot 2024-11-17 at 6 32 05 PM" src="https://github.com/user-attachments/assets/82328596-04fe-4d7b-91d8-48cea2cbcee3"># QNA_RAG
+# QNA_RAG
 
 An application used to answer user queries on basis of the data provided through urls. It uses RAG Approach to filter document and provide sufficient response.
 
@@ -100,10 +100,6 @@ To Visit UI:
 
 First Login to the Link using user_id and Password provided in `user_password_info.csv`. After Login, you can send urls to update the vector data base. The urls Should be in list of string format as shown below:
 <img width="1298" alt="Screenshot 2024-11-17 at 6 32 05 PM" src="https://github.com/user-attachments/assets/a8163d08-9eab-49b5-91c4-3e6278c99dda">
-
-
-
-
 ## Issues
 1. There might be chances that Ratatoille won't work correctly as there is very less document and support for the library. 
 2. While using ColBERT on CPU could slow up system.
