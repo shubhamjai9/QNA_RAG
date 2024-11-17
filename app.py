@@ -1,12 +1,8 @@
 import os
-from contextlib import asynccontextmanager
 from typing import List, Optional, Union
 from pydantic import BaseModel
 from fastapi import FastAPI, Request
 from typing import Optional, List, Dict
-
-from fastapi.responses import StreamingResponse
-from starlette.websockets import WebSocket, WebSocketDisconnect
 from src.vector_updation import url_data_updation, load_store
 from src.chat import chat
 import json

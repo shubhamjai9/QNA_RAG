@@ -1,6 +1,4 @@
 import gradio as gr
-import random
-import time
 import pandas as pd
 from fastapi.responses import RedirectResponse
 from src.vector_updation import url_data_updation, load_store
@@ -8,7 +6,7 @@ from src.chat import chat
 import os
 import json
 import ast
-from dotenv import load_dotenv, find_dotenv
+from dotenv import load_dotenv
 
 
 curr_path = os.path.dirname(os.path.abspath(__file__))

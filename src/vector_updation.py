@@ -126,17 +126,11 @@ def url_data_updation(urls: list[str], user_id: str, vector_store):
             text = get_processed_text(url_extract(url), url)
             if os.getenv("MODEL") == "ColBERT":
                 save_to_ragatouille(
-                    text,
-                    {"user_id": user_id, "link_id": url},
-                    vector_store,
+                    text, {"user_id": user_id, "link_id": url}, vector_store
                 )
             else:
                 documents = split_text(text)
-                save_to_chroma(
-                    documents,
-                    user_id,
-                    url,
-                )
+                save_to_chroma(documents, user_id, url, vector_store)
             success_url.append(url)
         except Exception as e:
             print("Error at url extraction", e)
