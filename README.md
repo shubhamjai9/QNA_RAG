@@ -10,7 +10,7 @@ You can choose between mxbai, ColBERT and OpenAI Embeddings for RAG from `.env`.
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install all the dependencies.
 
 ```bash
-pip install -r requirement.txt
+pip install -r requirements.txt
 ```
 
 ## Usage
