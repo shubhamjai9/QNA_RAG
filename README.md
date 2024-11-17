@@ -33,7 +33,7 @@ To Visit API:
 
 `http://0.0.0.0:8001/docs`  
 
-Dummy Request Format (Curl)
+Dummy Request Format for Uploading Links(Curl)
 ```bash
 curl -X 'POST' \
   'http://0.0.0.0:8001/api/v1/index' \
@@ -49,13 +49,54 @@ curl -X 'POST' \
 ```
 Returns a stringify json object
 ```json
-{'status': 'success',
- 'indexed_url': ['https://huyenchip.com/2024/07/25/genai-platform.html',
-  'https://lilianweng.github.io/posts/2024-07-07-hallucination/',
-  'https://jina.ai/news/what-is-colbert-and-late-interaction-and-why-they-matter-in-search/',
-  'https://quoraengineering.quora.com/Building-Embedding-Search-at-Quora'],
- 'failed_url': []}
+{
+    "status": "success",
+    "indexed_url": [
+        "https://huyenchip.com/2024/07/25/genai-platform.html",
+        "https://lilianweng.github.io/posts/2024-07-07-hallucination/",
+        "https://jina.ai/news/what-is-colbert-and-late-interaction-and-why-they-matter-in-search/",
+        "https://quoraengineering.quora.com/Building-Embedding-Search-at-Quora"
+    ],
+    "failed_url": []
+}
 ```
+Dummy Request Format for Chat(Curl)
+```bash
+curl -X 'POST' \
+  'http://0.0.0.0:8001/api/v1/chat' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "user_id": "string",
+    "messages": [
+        {
+            "role": "user",
+            "content": "Explain embedding searching?"
+        },
+        {
+            "role": "assistant",
+            "content": "Embedding searching is a retrieval method that involves generating embeddings for documents or data points and then searching for similar embeddings to find relevant information. It is computationally expensive but can be improved over time to outperform term-based retrieval."
+        },
+        {
+            "role": "user",
+            "content": "What is ColBert?"
+        }
+    ]
+}'
+```
+Returns a stringify json object
+```json
+{
+    "response": [
+        {
+            "content": "ColBERT is a model that achieves significant efficiency gains by reducing computational costs (FLOPs) and latency compared to traditional BERT-based ranking models. It matches or exceeds the effectiveness of BERT-based models with much lower computational demands.",
+            "role": "assistant",
+            "citation": "https://jina.ai/news/what-is-colbert-and-late-interaction-and-why-they-matter-in-search/"
+        }
+    ]
+}
+```
+
 
 ### FOR UI (Gradio) Usage
 ```bash
