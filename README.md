@@ -3,15 +3,7 @@
 An application used to answer user queries on basis of the data provided through urls. It uses RAG Approach to filter document and provide sufficient response.
 
 ### Models
-User can choose between mxbai, ColBERT and OpenAI Embeddings for RAG.
-
-## Project Screen Shot(s)
-
-#### Example:   
-
-[ PRETEND SCREEN SHOT IS HERE ]
-
-[ PRETEND OTHER SCREE SHOT IS HERE ]
+You can choose between mxbai, ColBERT and OpenAI Embeddings for RAG from `.env`.
 
 ## Installation
 
@@ -106,6 +98,10 @@ To Visit UI:
 
 `http://127.0.0.1:8002/` 
 
+First Login to the Link using user_id and Password provided in `user_password_info.csv`. After Login, you can send urls to update the vector data base. The urls Should be in list od string format as shown below:
+
+
+You can directly converse with 
 
 ## Discussion
 
