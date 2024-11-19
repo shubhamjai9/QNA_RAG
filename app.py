@@ -25,7 +25,7 @@ class BaseUrlRequestType(BaseModel):
 app = FastAPI(title="RAG-Link-api")
 
 
-@app.get("/health")
+@app.get("/")
 async def health(request: Request):
     return "Server up and running"
 
