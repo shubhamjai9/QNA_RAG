@@ -3,7 +3,7 @@ runtime: python311 # runtime to use
 build:
   commands:
     build:
-      - python -m pip install --upgrade pip
+      - python --version
       - pip install -r requirements.txt # install dependencies
 
   env: # define environment variables

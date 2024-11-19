@@ -21,5 +21,5 @@ EXPOSE 8080
 ENV PORT=8080
 
 # Use gunicorn as the entrypoint
-# CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "${PORT}", "--workers", "1"]
-CMD exec uvicorn app:app --host 0.0.0.0 --port 8080 --workers 1
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "${PORT}", "--workers", "1"]
+# CMD exec uvicorn app:app --host 0.0.0.0 --port 8080 --workers 1
