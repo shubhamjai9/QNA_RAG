@@ -70,4 +70,12 @@ async def websocket_endpoint(data: BaseChatRequestType, request: Request):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8001)
+    print("Starting webserver...")
+    uvicorn.run(
+        api,
+        host="0.0.0.0",
+        port=int(os.getenv("PORT", 8080)),
+        debug=os.getenv("DEBUG", False),
+        log_level=os.getenv("LOG_LEVEL", "info"),
+        proxy_headers=True,
+    )
