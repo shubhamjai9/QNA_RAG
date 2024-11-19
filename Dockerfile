@@ -15,10 +15,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the application code
 COPY . .
 
-# Expose the port your app listens on
-EXPOSE 8080
+# Expose port 5000
+EXPOSE 5000
 
-ENV PORT=8080
+# Set environment variables
+ENV PORT=5000
+
 
 # Use gunicorn as the entrypoint
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "${PORT}", "--workers", "1"]

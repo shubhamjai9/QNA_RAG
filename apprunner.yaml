@@ -1,7 +1,6 @@
 version: 1.0 # version of the specification
 runtime: python311 # runtime to use
 build:
-  runtime-version: 3.11
   commands:
     build:
       - python3 --version
