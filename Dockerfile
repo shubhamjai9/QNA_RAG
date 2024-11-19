@@ -9,7 +9,7 @@ WORKDIR /app
 
 # Copy the requirements file and install Python packages
 COPY requirements.txt .
-RUN pip3 install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 
 # Copy the application code
