@@ -1,9 +1,9 @@
 # Use a slim Python base image
 #!/usr/bin/bash
-FROM --platform=linux/arm64 python:3.11-slim
+FROM --platform=linux/arm64 python:3.12-slim
 
-# Set environment variables
-ENV GIT_PYTHON_REFRESH="quiet" 
+# # Set environment variables
+# ENV GIT_PYTHON_REFRESH="quiet" 
 
 WORKDIR /app
 
