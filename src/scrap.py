@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import requests
 from bs4 import BeautifulSoup
 import re
@@ -110,32 +111,43 @@ def url_extract(
         options.add_argument("--disable-dev-shm-usage")
         if not chrome:
             options.add_argument("headless")
-        driver = webdriver.Chrome(options=options)
+        # driver = webdriver.Chrome(options=options)
+        driver = webdriver.Remote(
+            "http://127.0.0.1:4444/wd/hub", DesiredCapabilities.CHROME
+        )
         driver.get(url)
         driver.implicitly_wait(wait)
 
         return driver.page_source
     except Exception as e:
-        print("Error in web scraping", e)
+        print("Error in web scraping", str(e))
+        return default_url_extract(url)
+        # return {
+        #     "error": "Can not extract Content from website",
+        #     "status": False,
+        #     "response": str(e),
+        # }
+
+
+def default_url_extract(url):
+    try:
+        response = requests.get(url)
+        if response.status_code != 200:
+            return {
+                "error": "Can not extract Content from website",
+                "status": False,
+                "response": response.text,
+            }
+        content = response.text
+        return content
+    except Exception as e:
         return {
             "error": "Can not extract Content from website",
             "status": False,
-            "response": e,
+            "response": str(e),
         }
 
 
-# def url_extract(url):
-#     response = requests.get(url)
-#     if response.status_code != 200:
-#         return {
-#             "error": "Can not extract Content from website",
-#             "status": False,
-#             "response": response.text,
-#         }
-#     content = response.text
-#     soup = BeautifulSoup(content, "html.parser")
-#     # print(soup.get_text())
-#     print(soup.find("body").get_text())
 if __name__ == "__main__":
     urls = [
         "https://huyenchip.com/2024/07/25/genai-platform.html",

@@ -2,15 +2,6 @@
 version: 1
 runtime: python311
 build:
-  env:
-    - name: PORT
-      value: "8080"
-    - name: DEBUG
-      value: on
-    - name: SECRET_KEY
-      value: "*"
-    - name: ALLOWED_HOSTS
-      value: "*"
 run:
   runtime-version: 3.11
   pre-run:
@@ -19,10 +10,3 @@ run:
   command: python3 app.py
   network:
     port: 8080
-    env:
-      - name: DEBUG
-        value: on
-      - name: SECRET_KEY
-        value: "*"
-      - name: ALLOWED_HOSTS
-        value: "*"

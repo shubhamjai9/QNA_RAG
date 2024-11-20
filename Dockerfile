@@ -1,8 +1,15 @@
 #!/usr/bin/bash
+FROM --platform=linux/arm64  ubuntu:22.04
 FROM --platform=linux/arm64 python:3.11-slim
 
 # # Set environment variables
 ENV GIT_PYTHON_REFRESH="quiet" 
+
+RUN apt-get update
+
+# Install the 'unzip' package
+RUN apt install unzip
+# RUN wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
 
 WORKDIR /app
 
