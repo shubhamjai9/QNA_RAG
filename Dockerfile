@@ -27,5 +27,5 @@ ENV PORT=5000
 
 
 # Use gunicorn as the entrypoint
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "${PORT}", "--workers", "1"]
+CMD ["gunicorn", "app:app", "--host", "0.0.0.0", "--port", "${PORT}", "--workers", "1"]
 # CMD exec uvicorn app:app --host 0.0.0.0 --port 8080 --workers 1

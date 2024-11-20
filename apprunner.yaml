@@ -4,7 +4,6 @@ build:
   commands:
     build:
       - python3 --version
-      - apt install gunicorn
       - pip3 install -r requirements.txt # install dependencies
 
   env: # define environment variables
