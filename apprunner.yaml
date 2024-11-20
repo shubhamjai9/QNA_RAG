@@ -5,15 +5,31 @@ build:
     build:
       - python3 --version
       - pip3 install -r requirements.txt # install dependencies
+      - pip3 list
 
   env: # define environment variables
     - name: PORT
       value: '8080'
+    - name: DEBUG
+      value: "on"
+    - name: SECRET_KEY
+      value: "*"
+    - name: ALLOWED_HOSTS
+      value: "*"
 run:
-  command: pip3 list
-  command: ls /usr/bin
-  command: ls
+  pre-run:
+    - pip3 install gunicorn
+    - pip3 install -r requirements.txt
+    - which gunicorn
+    - pip3 list
   # command: python3 -m uvicorn app:app --host 0.0.0.0 --port 8080 --workers 1
   command: python3 app.py # command to run fastapi
   network:
     port: 8080 # port AppRunner will expose
+    env:
+    - name: DEBUG
+      value: "on"
+    - name: SECRET_KEY
+      value: "*"
+    - name: ALLOWED_HOSTS
+      value: "*"
