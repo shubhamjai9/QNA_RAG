@@ -16,7 +16,7 @@ WORKDIR /app
 COPY ./requirements.txt /app/requirements.txt
 RUN apt-get -y update
 RUN apt-get install -y gunicorn
-RUN pip3 install --no-cache-dir -r requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt -e "."
 RUN pip3 install uvicorn
 RUN pip3 list
 RUN ls /usr/bin
