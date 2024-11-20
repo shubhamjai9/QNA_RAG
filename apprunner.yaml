@@ -2,6 +2,10 @@
 version: 1
 runtime: python311
 build:
+  commands:
+    build:        
+      - pip3 install pipenv
+      - pipenv install
 run:
   runtime-version: 3.11
   pre-run:
