@@ -1,5 +1,4 @@
 #!/usr/bin/bash
-FROM --platform=linux/arm64  ubuntu:22.04
 FROM --platform=linux/arm64 python:3.11-slim
 
 # # Set environment variables
