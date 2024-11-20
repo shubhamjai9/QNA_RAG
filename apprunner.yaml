@@ -1,12 +1,12 @@
-version: 1.0 # version of the specification
-runtime: python311 # runtime to use
+---
+version: 1
+runtime: python311
 build:
-
-  env: # define environment variables
+  env:
     - name: PORT
-      value: '8080'
+      value: "8080"
     - name: DEBUG
-      value: "on"
+      value: on
     - name: SECRET_KEY
       value: "*"
     - name: ALLOWED_HOSTS
@@ -16,13 +16,13 @@ run:
   pre-run:
     - pip3 install -r requirements.txt
     - pip3 list
-  command: python3 app.py # command to run fastapi
+  command: python3 app.py
   network:
-    port: 8080 # port AppRunner will expose
+    port: 8080
     env:
-    - name: DEBUG
-      value: "on"
-    - name: SECRET_KEY
-      value: "*"
-    - name: ALLOWED_HOSTS
-      value: "*"
+      - name: DEBUG
+        value: on
+      - name: SECRET_KEY
+        value: "*"
+      - name: ALLOWED_HOSTS
+        value: "*"

@@ -1,4 +1,3 @@
-# Use a slim Python base image
 #!/usr/bin/bash
 FROM --platform=linux/arm64 python:3.11-slim
 
@@ -28,5 +27,5 @@ ENV PORT=5000
 
 
 # Use gunicorn as the entrypoint
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "${PORT}", "--workers", "1"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "5000", "--workers", "1"]
 # CMD exec uvicorn app:app --host 0.0.0.0 --port 8080 --workers 1

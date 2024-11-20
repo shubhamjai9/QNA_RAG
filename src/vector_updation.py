@@ -123,7 +123,11 @@ def url_data_updation(urls: list[str], user_id: str, vector_store):
         }
     for url in urls:
         try:
-            text = get_processed_text(url_extract(url), url)
+            raw_data = url_extract(url)
+            if type(raw_data) == dict:
+                if raw_data["status"] == False:
+                    return raw_data
+            text = get_processed_text(raw_data, url)
             if os.getenv("MODEL") == "ColBERT":
                 save_to_ragatouille(
                     text, {"user_id": user_id, "link_id": url}, vector_store

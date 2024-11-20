@@ -107,6 +107,7 @@ def url_extract(
         # add driver options
         options = webdriver.ChromeOptions()
         options.add_argument(f"--user-agent={user_agent}")
+        options.add_argument("--disable-dev-shm-usage")
         if not chrome:
             options.add_argument("headless")
         driver = webdriver.Chrome(options=options)
@@ -115,6 +116,7 @@ def url_extract(
 
         return driver.page_source
     except Exception as e:
+        print("Error in web scraping", e)
         return {
             "error": "Can not extract Content from website",
             "status": False,
