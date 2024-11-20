@@ -3,7 +3,7 @@
 FROM --platform=linux/arm64 python:3.11-slim
 
 # # Set environment variables
-# ENV GIT_PYTHON_REFRESH="quiet" 
+ENV GIT_PYTHON_REFRESH="quiet" 
 
 WORKDIR /app
 
