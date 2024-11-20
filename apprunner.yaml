@@ -1,11 +1,6 @@
 version: 1.0 # version of the specification
 runtime: python311 # runtime to use
 build:
-  commands:
-    build:
-      - python3 --version
-      - pip3 install -r requirements.txt # install dependencies
-      - pip3 list
 
   env: # define environment variables
     - name: PORT
@@ -17,6 +12,7 @@ build:
     - name: ALLOWED_HOSTS
       value: "*"
 run:
+  runtime-version: 3.11
   pre-run:
     - pip3 install -r requirements.txt
     - pip3 list
