@@ -13,6 +13,7 @@ build:
       value: 'k-proj-x1TYi6LZ60qlrj5oBvu1ZRygHzeQrrEyFQqtf-H3Fbxoya9E3OVmg9RK2hkV9U1w5VzDINTAQoT3BlbkFJ9BvJJULnlngggFyNfFJXIROWxjqBM564ZOKSxocM8oaklV8PpIsHIuGd0Hmge55kCTBahSXAcA'
 
 run:
-  command: python3 app.py # command to run fastapi
+  command: python3 -m uvicorn app:app --host 0.0.0.0 --port 8080 --workers 1
+  # command: python3 app.py # command to run fastapi
   network:
     port: 8080 # port AppRunner will expose

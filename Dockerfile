@@ -23,5 +23,6 @@ ENV PORT=5000
 
 
 # Use gunicorn as the entrypoint
-CMD ["python3","-m","uvicorn", "app:app", "--host", "0.0.0.0", "--port", "${PORT}", "--workers", "1"]
+# CMD ["python3","-m","uvicorn", "app:app", "--host", "0.0.0.0", "--port", "${PORT}", "--workers", "1"]
 # CMD exec uvicorn app:app --host 0.0.0.0 --port 8080 --workers 1
+RUN python3 -m uvicorn app:app --host 0.0.0.0 --port 5000 --workers 1
