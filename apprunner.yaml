@@ -4,7 +4,7 @@ build:
   commands:
     build:
       - python3 --version
-      - sudo apt install gunicorn
+      - apt install gunicorn
       - pip3 install -r requirements.txt # install dependencies
 
   env: # define environment variables
@@ -12,7 +12,9 @@ build:
       value: '8080'
 run:
   command: pip3 list
-  command: python3 -m uvicorn app:app --host 0.0.0.0 --port 8080 --workers 1
-  # command: python3 app.py # command to run fastapi
+  command: ls /usr/bin
+  command: ls
+  # command: python3 -m uvicorn app:app --host 0.0.0.0 --port 8080 --workers 1
+  command: python3 app.py # command to run fastapi
   network:
     port: 8080 # port AppRunner will expose
