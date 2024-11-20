@@ -1,18 +1,17 @@
----
 version: 1
 runtime: python311
 build:
   commands:
-    build:        
-      - pip3 install pipenv
-      - pipenv install
+    build:
+      - pip3 list
 run:
   runtime-version: 3.11
   pre-run:
     - pip3 install -r requirements.txt
     - pip3 list
-  commands: 
-    - pip3 list
-    - python3 -m uvicorn app:app --host 0.0.0.0 --port 8080 --workers 1
+  commands:
+    run:
+      - pip3 list
+      - 'python3 -m uvicorn app:app --host 0.0.0.0 --port 8080 --workers 1'
   network:
     port: 8080
