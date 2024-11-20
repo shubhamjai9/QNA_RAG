@@ -13,4 +13,4 @@ run:
     - pip3 list
   command: python3 app.py
   network:
-    port: 8080
+    port: 5000
